@@ -16,7 +16,7 @@ cat ips.txt | wlr "ping FUZZ" | parallel
   -clusterbomb
     	Enable clusterbomb mode (1 1, 1 2, 1 3...) (default true)
   -pitchfork
-    	Enable pitchfork mode (1 1, 2 2, 3 3...
+    	Enable pitchfork mode (1 1, 2 2, 3 3...)
 ```
 
 ## Install:
