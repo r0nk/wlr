@@ -16,24 +16,8 @@ func usage() {
 	fmt.Println("Usage: wlr <input> [<filename>:[placeholder]]...")
 	fmt.Println("Examples:")
 	fmt.Println("cat wordlist.txt | wlr \"replace: FUZZ\" ")
+	fmt.Println("wlr \"FIRST SECOND\" ./test/wordlist.txt:FIRST ./test/wordlist2.txt:SECOND")
 }
-
-//TODO
-//func sniper(input string, fp fp_pair) {
-//	var ret []string
-//	var lines []string
-//	var err error
-//	lines, err = read_lines(fp.file)
-//	if err != nil {
-//		panic(err)
-//	}
-//
-//	for _, line := range lines {
-//		modified := strings.Replace(input, fp.placeholder, line, -1)
-//		ret.append(modified)
-//	}
-//	return ret
-//}
 
 func clusterbomb(input string, fp_pairs []fp_pair, recursions int) []string {
 	var ret []string
@@ -139,8 +123,8 @@ func main() {
 	var clusterbomb_flag bool
 	var pitchfork_flag bool
 
-	flag.BoolVar(&clusterbomb_flag, "clusterbomb", true, "Enable clusterbomb mode (1 1, 1 2, 1 3...)")
-	flag.BoolVar(&pitchfork_flag, "pitchfork", false, "Enable pitchfork mode (1 1, 2 2, 3 3...")
+	flag.BoolVar(&clusterbomb_flag, "clusterbomb", true, "Enable clusterbomb mode (1 1, 1 2, 2 1,2 2)")
+	flag.BoolVar(&pitchfork_flag, "pitchfork", false, "Enable pitchfork mode (1 1, 2 2)")
 
 	//TODO add an option to not recursively replace
 
